@@ -9,8 +9,18 @@ request('https://olimpiada.ru/activities', function (error, response, html) {
     var elems = $('#megalist');
     //console.log(elems);
     $('.fav_olimp').each(function(i, element){
-      var nameOlymp = $('span.headline').text()
-      
+      var nameOlymp = $('span.headline').text();
+      var olympDesc = $('a.olymp_desc').text();
+      var subjects = $('span.subject_tag').text();
+      var schoolClasses = $('span.classes_dop').text();
+      console.log('************************************************');
+      var olymp = {
+      	name: nameOlymp,
+      	description: olympDesc,
+      	subjects: subjects,
+      	classes: schoolClasses
+      };
+      console.log(olymp);
     });
   }
 });
