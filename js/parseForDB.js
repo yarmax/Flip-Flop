@@ -1,5 +1,8 @@
 var request = require('request');
 var cheerio = require('cheerio');
+var fs = require('fs');
+
+var olymps = [];
 
 request('https://olimpiada.ru/activities', function (error, response, html) {
   if (!error && response.statusCode == 200) 
@@ -24,7 +27,7 @@ request('https://olimpiada.ru/activities', function (error, response, html) {
       var subjects = $(olympTables[i]).find('span.subject_tag').text();
       var schoolClasses = $(olympTables[i]).find('span.classes_dop').text();
       var ratingOlymp = $(olympTables[i]).find('span.pl_rating').text();
-      console.log('************************************************');
+      //console.log('************************************************');
       var olymp = {
         name: nameOlymp,
         date: dateOfEvent,
@@ -33,8 +36,15 @@ request('https://olimpiada.ru/activities', function (error, response, html) {
         classes: schoolClasses,
         rating: ratingOlymp
       };
-      console.log(olymp);
-    }  
+      olymps.push(olymp);
+
+      //console.log(olymp);
+    }
+    
+    var json = JSON.stringify(olymps);
+    fs.writeFile('./olympiads.json', json, 'utf8');
+    //console.log(json);
+
   }
 });
 
