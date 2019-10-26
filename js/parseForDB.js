@@ -3,7 +3,7 @@ var cheerio = require('cheerio');
 
 request('https://olimpiada.ru/activities', function (error, response, html) {
   if (!error && response.statusCode == 200) 
-  {
+  {   
     //console.log(html);
     var $ = cheerio.load(html);
     var elems = $('#megalist');
@@ -25,6 +25,11 @@ request('https://olimpiada.ru/activities', function (error, response, html) {
     });
   }
 });
+
+function parseOlympTable(tableObj)
+{
+  
+}
 
 
 
