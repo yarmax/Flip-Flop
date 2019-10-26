@@ -9,11 +9,10 @@ request('https://olimpiada.ru/activities', function (error, response, html) {
     var elems = $('#megalist');
     //console.log(elems);
     $('.fav_olimp').each(function(i, element){
-      //console.log($(this));
-      var nameOlymp = $(this).find('span.headline').text();
-      var olympDesc = $(this).find('a.olymp_desc').text();
-      var subjects = $(this).find('span.subject_tag').text();
-      var schoolClasses = $(this).find('span.classes_dop').text();
+      var nameOlymp = $('span.headline').text();
+      var olympDesc = $('a.olymp_desc').text();
+      var subjects = $('span.subject_tag').text();
+      var schoolClasses = $('span.classes_dop').text();
       console.log('************************************************');
       var olymp = {
       	name: nameOlymp,
