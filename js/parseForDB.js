@@ -5,7 +5,7 @@ var olypmiads = [];
 
 request('https://olimpiada.ru/activities', function (error, response, html) {
   if (!error && response.statusCode == 200) 
-  {   
+  {
     //console.log(html);
     var $ = cheerio.load(html);
     var elems = $('#megalist');
@@ -13,6 +13,7 @@ request('https://olimpiada.ru/activities', function (error, response, html) {
   }
 });
 
+<<<<<<< HEAD
 function parseOlympTables(tablesObj)
 {
   tablesObj.each(function(i, element) {   
@@ -38,6 +39,8 @@ function parseOlympTables(tablesObj)
   });
 }
 
+=======
+>>>>>>> parent of 0a4115f... 1. Backup commit
 
 
 //console.log($('.subject_tag').text());
