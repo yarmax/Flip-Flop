@@ -1,4 +1,5 @@
 
+
 (function ($) {
 	"use strict";
 	$('.column100').on('mouseover',function(){
@@ -23,3 +24,14 @@
     
 
 })(jQuery);
+
+
+$(document).ready(function(){
+  $.getJSON("test.json", function(json) {
+     console.log(json); 
+  });
+      
+      //var keys = Object.keys(obj);
+      var headOfTable = $('thead tr');
+      console.log(headOfTable);    
+});
