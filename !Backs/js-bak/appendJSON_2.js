@@ -11,7 +11,7 @@ fsJSON.readFile('olympiads.json', 'utf8', function readFileCallback(err, json){
     else 
     {
 	  
-	  fsHTML.readFile('../index_template.html', 'utf8', function readFileCallback(err, html){
+	  fsHTML.readFile('../index.html', 'utf8', function readFileCallback(err, html){
         if (err)
 	    {
 	      console.log(err);
@@ -56,7 +56,7 @@ fsJSON.readFile('olympiads.json', 'utf8', function readFileCallback(err, json){
           // var row = $('tr');
 
           var newHTML = $.html();
-          fsHTML.writeFile('../index.html', newHTML, 'utf8');
+          fsHTML.writeFile('../index_new.html', newHTML, 'utf8');
 	    }  
 	  });		
 	}

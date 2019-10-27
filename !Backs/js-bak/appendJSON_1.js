@@ -11,7 +11,7 @@ fsJSON.readFile('olympiads.json', 'utf8', function readFileCallback(err, json){
     else 
     {
 	  
-	  fsHTML.readFile('../index_template.html', 'utf8', function readFileCallback(err, html){
+	  fsHTML.readFile('../index.html', 'utf8', function readFileCallback(err, html){
         if (err)
 	    {
 	      console.log(err);
@@ -41,22 +41,20 @@ fsJSON.readFile('olympiads.json', 'utf8', function readFileCallback(err, json){
           var bodyTable = $('tbody');
           for (var i = 0; i <= records.length - 1; i++) 
           {
-          	var rowStr = '<tr>';
+          	bodyTable.append('<tr> </tr>');
+          	var row = $('tr');
           	var colIndex = 0;
           	for (var prop in records[i]) 
             {
               colIndex++;
-              //row.append('<td class="cell100 column' + colIndex + '">' + records[i][prop] + '</td>');
-              rowStr += '<td class="cell100 column' + colIndex + '">' + records[i][prop] + '</td>';  
+              row.append('<td class="cell100 column' + colIndex + '">' + records[i][prop] + '</td>');  
             }
-            rowStr += '</tr>';
-            bodyTable.append(rowStr);         	
+            //bodyTable.append('</tr>');         	
           }
-          // bodyTable.append('<tr> </tr>');
-          // var row = $('tr');
+
 
           var newHTML = $.html();
-          fsHTML.writeFile('../index.html', newHTML, 'utf8');
+          fsHTML.writeFile('../index_new.html', newHTML, 'utf8');
 	    }  
 	  });		
 	}
